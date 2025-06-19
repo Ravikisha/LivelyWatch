@@ -1,0 +1,65 @@
+{
+  "name": "livelywatch",
+  "version": "1.0.0",
+  "description": "A fast, TypeScript-based live-reload dev server. Serve static sites, sniff file changes, inject CSS & full-page reloads with WebSocket live updates.",
+  "main": "dist/cli.js",
+  "bin": {
+    "livelywatch": "dist/cli.js"
+  },
+  "keywords": [
+    "live-reload",
+    "dev-server",
+    "typescript",
+    "hot-reload",
+    "watch",
+    "livelywatch",
+    "ws",
+    "static-server",
+    "spa"
+  ],
+  "author": "Ravi Kishan <ravikishan63392@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "tsx watch src/cli.ts",
+    "build": "esbuild src/cli.ts --bundle --platform=node --outfile=dist/cli.js --banner:js='#!/usr/bin/env node'",
+    "start": "node dist/cli.js",
+    "lint": "eslint src --fix",
+    "format": "prettier --write src",
+    "typecheck": "tsc --noEmit"
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "http-proxy-middleware": "^3.0.5",
+    "open": "^10.1.2"
+  },
+  "devDependencies": {
+    "@types/connect": "^3.4.38",
+    "@types/node": "^24.0.3",
+    "@types/serve-static": "^1.15.8",
+    "@types/ws": "^8.18.1",
+    "@typescript-eslint/eslint-plugin": "^8.34.1",
+    "@typescript-eslint/parser": "^8.34.1",
+    "chokidar": "^4.0.3",
+    "commander": "^14.0.0",
+    "connect": "^3.7.0",
+    "esbuild": "^0.25.5",
+    "eslint": "^9.29.0",
+    "eslint-config-prettier": "^10.1.5",
+    "prettier": "^3.5.3",
+    "serve-static": "^2.2.0",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3",
+    "ws": "^8.18.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ravikisha/LivelyWatch.git"
+  },
+  "homepage": "https://github.com/Ravikisha/LivelyWatch#readme",
+  "bugs": {
+    "url": "https://github.com/yourusername/livelywatch/issue"
+  }
+}
