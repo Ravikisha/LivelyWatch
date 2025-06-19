@@ -1,6 +1,6 @@
 {
   "name": "livelywatch",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A fast, TypeScript-based live-reload dev server. Serve static sites, sniff file changes, inject CSS & full-page reloads with WebSocket live updates.",
   "main": "dist/cli.js",
   "bin": {
