@@ -52,3 +52,6 @@ startServer({
   key: options.key || "",
   proxy: options.proxy,
 });
+
+
+export { program, options as cliOptions };

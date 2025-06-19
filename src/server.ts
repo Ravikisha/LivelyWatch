@@ -15,11 +15,11 @@ import { LivelyOptions } from "./types";
 
 let sockets: WebSocket[] = [];
 
+let server: http.Server | https.Server;
+
 export function startServer(options: LivelyOptions) {
   const app = connect();
   const { https: useHttps, cert, key } = options;
-
-  let server: http.Server | https.Server;
 
   // 1. Inject reload script middleware BEFORE static serve
   app.use((req, res, next) => {
@@ -133,4 +133,23 @@ export function broadcastCSSReload() {
       ws.send("reload-css");
     }
   }
+}
+
+
+export function getServerSockets() {
+  return sockets;
+}
+
+export function stopServer() {
+  return new Promise<void>((resolve, reject) => {
+    if (sockets.length > 0) {
+      sockets.forEach((ws) => ws.close());
+      sockets = [];
+    }
+    server.close((err) => {
+      if (err) return reject(err);
+      console.log("Server stopped.");
+      resolve();
+    });
+  });
 }
